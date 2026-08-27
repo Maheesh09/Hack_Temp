@@ -1,0 +1,69 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CP: Run Problem",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\tools\\run.ps1",
+                "${input:problemName}"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "CP: Run Tests",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\tools\\run_tests.ps1",
+                "${input:problemName}"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        },
+        {
+            "label": "CP: Stress Test",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}\\tools\\stress_test.py",
+                "${input:problemName}",
+                "-n",
+                "1000"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "problemName",
+            "type": "promptString",
+            "description": "Problem name",
+            "default": "problem01"
+        }
+    ]
+}
+
