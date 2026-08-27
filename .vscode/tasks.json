@@ -1,69 +1,99 @@
 {
     "version": "2.0.0",
     "tasks": [
+
+        // ── Auto-detect from open file (use keyboard shortcuts) ──────────
+
+        {
+            "label": "CP: Run (current)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\tools\\run.ps1",
+                "${fileDirname}"
+            ],
+            "problemMatcher": [],
+            "presentation": { "reveal": "always", "panel": "shared", "focus": true }
+        },
+        {
+            "label": "CP: Test (current)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\tools\\run_tests.ps1",
+                "${fileDirname}"
+            ],
+            "problemMatcher": [],
+            "presentation": { "reveal": "always", "panel": "shared", "focus": true }
+        },
+        {
+            "label": "CP: Stress (current)",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}\\tools\\stress_test.py",
+                "${fileDirname}",
+                "-n", "1000"
+            ],
+            "problemMatcher": [],
+            "presentation": { "reveal": "always", "panel": "shared", "focus": true }
+        },
+
+        // ── New problem setup ─────────────────────────────────────────────
+
+        {
+            "label": "CP: New Problem",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\tools\\new.ps1",
+                "${input:newProblemName}"
+            ],
+            "problemMatcher": [],
+            "presentation": { "reveal": "always", "panel": "shared", "focus": true }
+        },
+
+        // ── Fallback: manual problem name (if needed) ─────────────────────
+
         {
             "label": "CP: Run Problem",
             "type": "shell",
             "command": "powershell",
             "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\run.ps1",
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\tools\\run.ps1",
                 "${input:problemName}"
             ],
             "problemMatcher": [],
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "focus": true
-            }
+            "presentation": { "reveal": "always", "panel": "shared", "focus": true }
         },
         {
             "label": "CP: Run Tests",
             "type": "shell",
             "command": "powershell",
             "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                "${workspaceFolder}\\tools\\run_tests.ps1",
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}\\tools\\run_tests.ps1",
                 "${input:problemName}"
             ],
             "problemMatcher": [],
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "focus": true
-            }
-        },
-        {
-            "label": "CP: Stress Test",
-            "type": "shell",
-            "command": "python",
-            "args": [
-                "${workspaceFolder}\\tools\\stress_test.py",
-                "${input:problemName}",
-                "-n",
-                "1000"
-            ],
-            "problemMatcher": [],
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "focus": true
-            }
+            "presentation": { "reveal": "always", "panel": "shared", "focus": true }
         }
     ],
     "inputs": [
         {
             "id": "problemName",
             "type": "promptString",
-            "description": "Problem name",
+            "description": "Problem name (e.g. problem02)",
             "default": "problem01"
+        },
+        {
+            "id": "newProblemName",
+            "type": "promptString",
+            "description": "New problem name (e.g. problem03)"
         }
     ]
 }
-

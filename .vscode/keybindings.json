@@ -1,0 +1,22 @@
+[
+    {
+        "key": "ctrl+shift+r",
+        "command": "workbench.action.tasks.runTask",
+        "args": "CP: Run (current)"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.tasks.runTask",
+        "args": "CP: Test (current)"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.tasks.runTask",
+        "args": "CP: Stress (current)"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "workbench.action.tasks.runTask",
+        "args": "CP: New Problem"
+    }
+]

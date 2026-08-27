@@ -113,7 +113,12 @@ def main():
     tools_dir = Path(__file__).resolve().parent
     root_dir = tools_dir.parent
 
-    problem_dir = root_dir / "problems" / args.problem
+    # Accept either "problem01" or a full path from ${fileDirname}
+    p = Path(args.problem)
+    if p.is_dir():
+        problem_dir = p.resolve()
+    else:
+        problem_dir = root_dir / "problems" / args.problem
 
     solution = problem_dir / "solution.cpp"
     brute = problem_dir / "brute.cpp"

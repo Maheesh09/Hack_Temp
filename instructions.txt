@@ -1,0 +1,70 @@
+========================================
+HACKATHON SETUP — DO THIS ONCE
+========================================
+
+1. git pull  (get latest tools)
+
+2. Add keybindings to VS Code:
+   - Press Ctrl+Shift+P
+   - Type: Open Keyboard Shortcuts JSON
+   - Click: Preferences: Open Keyboard Shortcuts (JSON)
+   - Replace everything in the file with the 4 bindings from keybindings.json
+   - Save
+
+That's it. Setup done.
+
+
+========================================
+DURING THE HACKATHON
+========================================
+
+--- New problem arrives ---
+
+1. Ctrl+Shift+N
+2. Type problem name (e.g. problem02)
+3. Enter
+   → solution.cpp opens automatically
+
+4. Paste code into solution.cpp
+
+5. Create test files:
+   problems/problem02/tests/test01.in   ← paste input from problem
+   problems/problem02/tests/test01.out  ← paste expected output
+
+--- Run tests ---
+
+1. Have solution.cpp open
+2. Ctrl+Shift+T
+   → compiles and runs all tests automatically
+
+--- If tests pass, submit ---
+
+--- If tests fail ---
+
+1. Fix solution.cpp
+2. Ctrl+Shift+T again
+
+
+========================================
+ALL SHORTCUTS
+========================================
+
+Ctrl+Shift+N   Create new problem
+Ctrl+Shift+T   Run all tests
+Ctrl+Shift+R   Run interactively (type input yourself)
+Ctrl+Shift+S   Stress test (needs brute.cpp + generator.py)
+
+
+========================================
+IMPORTANT NOTES
+========================================
+
+- Always have solution.cpp open when pressing shortcuts
+  (not README, not tasks.json — solution.cpp)
+
+- Test files must be named test01.in / test01.out
+  (not sample.in or input.in)
+
+- Remove any cerr debug lines before submitting
+
+- Check long long if numbers can exceed 2 billion

@@ -14,7 +14,13 @@ $ErrorActionPreference = "Stop"
 $ToolsDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $RootDir = Split-Path -Parent $ToolsDir
 
-$ProblemDir = Join-Path $RootDir "problems\$Problem"
+# Accept either "problem01" or a full path from ${fileDirname}
+if (Test-Path $Problem -PathType Container) {
+    $ProblemDir = $Problem
+    $Problem = Split-Path -Leaf $Problem
+} else {
+    $ProblemDir = Join-Path $RootDir "problems\$Problem"
+}
 $SourceFile = Join-Path $ProblemDir "solution.cpp"
 
 $BuildDir = Join-Path $RootDir "build\$Problem"
