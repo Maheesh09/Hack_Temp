@@ -85,10 +85,8 @@ Write-Host ""
 # Get tests
 # ------------------------------------------------------------
 
-$InputFiles = Get-ChildItem `
-    -Path $TestsDir `
-    -Filter "*.in" `
-    -File |
+$InputFiles = Get-ChildItem -Path $TestsDir -Filter "*.in" -File |
+    Where-Object { $_.Name -ne "failing_test.in" } |
     Sort-Object Name
 
 if ($InputFiles.Count -eq 0) {

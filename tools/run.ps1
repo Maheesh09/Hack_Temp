@@ -160,7 +160,12 @@ $process.StandardInput.Close()
 $output = $process.StandardOutput.ReadToEnd()
 $errorOutput = $process.StandardError.ReadToEnd()
 
-$process.WaitForExit()
+$finished = $process.WaitForExit(10000)   # 10 seconds
+if (-not $finished) {
+    $process.Kill()
+    Write-Host "TIME LIMIT EXCEEDED" -ForegroundColor Red
+    exit 1
+}
 
 $elapsed = ((Get-Date) - $startTime).TotalMilliseconds
 

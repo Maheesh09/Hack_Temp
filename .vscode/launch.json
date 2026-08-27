@@ -2,18 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Current Problem",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/problem01/solution.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/problems/problem01",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "gdb.exe",
-            "preLaunchTask": "Build Problem01"
-        }
+    "name": "Debug Current Problem",
+    "type": "cppdbg",
+    "request": "launch",
+    "program": "${workspaceFolder}/build/${input:problemName}/solution.exe",
+    "args": [],
+    "stopAtEntry": false,
+    "cwd": "${workspaceFolder}/problems/${input:problemName}",
+    "environment": [],
+    "externalConsole": false,
+    "MIMode": "gdb",
+    "miDebuggerPath": "gdb.exe",
+    "preLaunchTask": "CP: Run Problem"
+}
     ]
 }
