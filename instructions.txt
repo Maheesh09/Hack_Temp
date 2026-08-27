@@ -1,20 +1,4 @@
 ========================================
-HACKATHON SETUP — DO THIS ONCE
-========================================
-
-1. git pull  (get latest tools)
-
-2. Add keybindings to VS Code:
-   - Press Ctrl+Shift+P
-   - Type: Open Keyboard Shortcuts JSON
-   - Click: Preferences: Open Keyboard Shortcuts (JSON)
-   - Replace everything in the file with the 4 bindings from keybindings.json
-   - Save
-
-That's it. Setup done.
-
-
-========================================
 DURING THE HACKATHON
 ========================================
 
