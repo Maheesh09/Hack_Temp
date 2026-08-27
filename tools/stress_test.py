@@ -86,7 +86,7 @@ def main():
         "-n",
         "--tests",
         type=int,
-        default=1000,
+        default=100,
         help="Number of random tests"
     )
 

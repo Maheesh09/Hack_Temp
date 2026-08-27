@@ -33,10 +33,10 @@
             "type": "shell",
             "command": "python",
             "args": [
-                "${workspaceFolder}\\tools\\stress_test.py",
-                "${fileDirname}",
-                "-n", "1000"
-            ],
+                    "${workspaceFolder}\\tools\\stress_test.py",
+                    "${fileDirname}",
+                    "-n", "${input:stressCount}"
+    ],
             "problemMatcher": [],
             "presentation": { "reveal": "always", "panel": "shared", "focus": true }
         },
@@ -94,6 +94,12 @@
             "id": "newProblemName",
             "type": "promptString",
             "description": "New problem name (e.g. problem03)"
-        }
+        },
+        {
+            "id": "stressCount",
+            "type": "promptString",
+            "description": "Number of stress tests",
+            "default": "100"
+}
     ]
 }
